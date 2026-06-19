@@ -19,10 +19,15 @@ function App() {
     <div
       style={{
         width: "100%",
-        maxwidth: "1300px",
+        maxWidth: "1300px",
+        minHeight: "100vh",
         height: "100vh",
         margin: "0 auto",
         overflow: "hidden",
+        position: "relative",
+        background: "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
+        backgroundColor: "#2a100f",
+        color: "#ece2e2",
       }}
     >
       <nav

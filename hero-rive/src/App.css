@@ -1,3 +1,8 @@
+body {
+  /* Change these two colors to edit the background gradient */
+  background: liear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%);
+}
+
 .hero-text-wrap {
   /* Change top/left/transform values to move the animated text */
   position: absolute;
@@ -10,7 +15,7 @@
 
 .hero-text {
   margin: 0;
-  color: #c9b6b6;
+  color: #ece2e2;
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
   /* Change this to control the base spacing between letters */
