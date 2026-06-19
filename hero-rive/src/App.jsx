@@ -7,7 +7,7 @@ function App() {
   const navItems = ["Home", "About", "Contact"];
 
   const { rive, RiveComponent } = useRive({
-  src: "/char03.riv",
+  src: "/char04.riv",
   stateMachines: "State Machine 1",
   autoplay: true,
   layout: new Layout({
