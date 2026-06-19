@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRive, Fit, Layout } from "@rive-app/react-canvas";
+import "./App.css";
 
 function App() {
   const [activeNav, setActiveNav] = useState("Home");
@@ -65,37 +66,51 @@ function App() {
           })}
         </div>
       </nav>
-    <div
-      style={{
-        width: "100%",
-        maxWidth: "100%",
-        height: "calc(100vh - 64px)",
-        margin: "0 auto",
-        position: "relative",
-        bottom: 0,
-      }}
-      onMouseMove={(e) => {
-        if (!rive) return;
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "100%",
+          height: "calc(100vh - 64px)",
+          margin: "0 auto",
+          position: "relative",
+          overflow: "hidden",
+          isolation: "isolate",
+          bottom: 0,
+        }}
+        onMouseMove={(e) => {
+          if (!rive) return;
 
-        const inputs = rive.stateMachineInputs("State Machine 1");
+          const inputs = rive.stateMachineInputs("State Machine 1");
 
-        const pointerX = inputs.find(
-          (input) => input.name === "PointerX"
-        );
-        const pointerY = inputs.find(
-          (input) => input.name === "PointerY"
-        );
+          const pointerX = inputs.find(
+            (input) => input.name === "PointerX"
+          );
+          const pointerY = inputs.find(
+            (input) => input.name === "PointerY"
+          );
 
-        const x = ((e.clientX / window.innerWidth) * 200) - 100;
-        const y = -(((e.clientY / window.innerHeight) * 200) - 100);
+          const x = ((e.clientX / window.innerWidth) * 200) - 100;
+          const y = -(((e.clientY / window.innerHeight) * 200) - 100);
 
-        if (pointerX) pointerX.value = x;
-        if (pointerY) pointerY.value = y;
-      }}
-    >
-      <RiveComponent />
+          if (pointerX) pointerX.value = x;
+          if (pointerY) pointerY.value = y;
+        }}
+      >
+        <RiveComponent
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        />
+        <div className="hero-text-wrap">
+          {/* Change this text to edit the animated headline */}
+          <h1 className="hero-text">NALIN</h1>
+        </div>
+      </div>
     </div>
-  </div>
   );
 }
 
