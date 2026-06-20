@@ -1,12 +1,11 @@
 body {
-  /* Change the color stops below to edit the bottom-to-top radial background */
   background: radial-gradient(ellipse at 50% 100%, #bf643d 0%, #e99995 58%, #e0c4c3 100%);
 }
 
 .hero-text-wrap {
   /* Change top/left/transform values to move the animated text */
   position: absolute;
-  top: 42%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
@@ -16,7 +15,7 @@ body {
 .hero-text {
   margin: 0;
   color: #f7f5f5;
-  font-size: clamp(5rem, 9vw, 7rem);
+  font-size: clamp(4rem, 7.2vw, 6rem);
   font-weight: 800;
   /* Change this to control the base spacing between letters */
   letter-spacing: -0.18em;
