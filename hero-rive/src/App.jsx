@@ -5,6 +5,10 @@ import "./App.css";
 function App() {
   const [activeNav, setActiveNav] = useState("Home");
   const [isLoading, setIsLoading] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return window.innerWidth >= 1024;
+  });
   const navItems = ["Home", "About", "Contact"];
 
   const { rive, RiveComponent } = useRive({
@@ -19,6 +23,19 @@ function App() {
   useEffect(() => {
     const timer = window.setTimeout(() => setIsLoading(false), 1400);
     return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -45,7 +62,40 @@ function App() {
         </div>
       )}
 
-      {!isLoading && (
+      {!isLoading && !isDesktop && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background:
+              "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
+            color: "#ece2e2",
+            textAlign: "center",
+            padding: "24px",
+          }}
+        >
+          <div style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800 }}>
+            VIEW IN DESKTOP
+          </div>
+          <div
+            style={{
+              marginTop: "12px",
+              fontSize: "0.95rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+            }}
+          >
+            This experience is best on larger screens.
+          </div>
+        </div>
+      )}
+
+      {!isLoading && isDesktop && (
         <div
           style={{
             width: "100%",
