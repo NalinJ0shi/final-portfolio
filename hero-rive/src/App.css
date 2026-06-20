@@ -1,6 +1,6 @@
 body {
   /* Change these two colors to edit the background gradient */
-  background: liear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%);
+  background: linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%);
 }
 
 .hero-text-wrap {
@@ -24,9 +24,38 @@ body {
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.18);
   opacity: 0.78;
   transform: scale(1);
+  white-space: nowrap;
   animation:
     letterSpacingLoop 1.5s ease-out 1 forwards,
     fontFamilyPulse 2.2s steps(1, end) 1.5s 1 forwards;
+}
+
+@media (max-width: 768px) {
+  .hero-text-wrap {
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    letter-spacing: 0.08em;
+    white-space: normal;
+    line-height: 0.9;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: clamp(2.5rem, 13vw, 3.5rem);
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text {
+    animation: none;
+  }
 }
 
 @keyframes letterSpacingLoop {
