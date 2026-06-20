@@ -50,12 +50,11 @@ function App() {
           style={{
             width: "100%",
             maxWidth: "1300px",
-            minHeight: "100dvh",
+            minHeight: "100vh",
+            height: "100vh",
             margin: "0 auto",
             overflow: "hidden",
             position: "relative",
-            display: "flex",
-            flexDirection: "column",
             background:
               "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
             backgroundColor: "#2a100f",
@@ -71,8 +70,6 @@ function App() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              gap: "12px",
-              flexWrap: "wrap",
               boxSizing: "border-box",
               position: "relative",
               zIndex: 1,
@@ -111,14 +108,14 @@ function App() {
             style={{
               width: "100%",
               maxWidth: "100%",
-              flex: "1 1 auto",
-              minHeight: 0,
+              height: "calc(100vh - 64px)",
               margin: "0 auto",
               position: "relative",
               overflow: "hidden",
               isolation: "isolate",
+              bottom: 0,
             }}
-            onPointerMove={(e) => {
+            onMouseMove={(e) => {
               if (!rive) return;
 
               const inputs = rive.stateMachineInputs("State Machine 1");

@@ -13,17 +13,11 @@ html, body, #root {
   font-family: 'Inter', sans-serif;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   margin: 0;
-  min-height: 100dvh;
   background: #2a100f;
-  overflow-x: hidden;
 }
 
 #root {
-  min-height: 100dvh;
+  min-height: 100vh;
 }
