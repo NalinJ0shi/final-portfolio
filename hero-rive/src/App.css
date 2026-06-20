@@ -19,12 +19,14 @@ body {
   font-size: clamp(4rem, 7.2vw, 6rem);
   font-weight: 800;
   /* Change this to control the base spacing between letters */
-  letter-spacing: 0.12em;
+  letter-spacing: -0.18em;
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.18);
   opacity: 0.78;
-  /* Change 2.8s to adjust animation speed/duration */
-  animation: letterSpacingLoop 2.8s ease-out 1 forwards;
+  transform: scale(1);
+  animation:
+    letterSpacingLoop 1.5s ease-out 1 forwards,
+    fontFamilyPulse 2.2s steps(1, end) 1.5s 1 forwards;
 }
 
 @keyframes letterSpacingLoop {
@@ -37,5 +39,36 @@ body {
     /* End very spread out */
     letter-spacing: 0.6em;
     opacity: 0.9;
+  }
+}
+
+@keyframes fontFamilyPulse {
+  0% {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+  }
+  16% {
+    font-family: 'Papyrus', fantasy;
+    font-weight: 700;
+  }
+  32% {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+  }
+  48% {
+    font-family: 'Brush Script MT', cursive;
+    font-weight: 600;
+  }
+  64% {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    font-weight: 700;
+  }
+  80% {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+  }
+  100% {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
   }
 }
