@@ -33,8 +33,7 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             background:
-              // Change the color stops here to edit the bottom-to-top radial glow
-              "radial-gradient(ellipse at 50% 100%, #924d2b 0%, #4b1d1b 58%, #2a100f 100%)",
+              "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
             color: "#ece2e2",
             fontSize: "1rem",
             fontWeight: 600,
@@ -57,8 +56,7 @@ function App() {
             overflow: "hidden",
             position: "relative",
             background:
-              // Change the color stops here to edit the bottom-to-top radial glow
-              "radial-gradient(ellipse at 50% 100%, #924d2b 0%, #4b1d1b 58%, #2a100f 100%)",
+              "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
             backgroundColor: "#2a100f",
             color: "#ece2e2",
           }}
@@ -77,15 +75,17 @@ function App() {
               zIndex: 1,
             }}
           >
-            <div style={{ fontWeight: 700, fontSize: "18px" }}>Nalin</div>
+            <div style={{ fontWeight: 700, fontSize: "18px", zIndex: 2 }}>
+              Nalin
+            </div>
             <div
               style={{
                 position: "absolute",
                 left: "50%",
                 transform: "translateX(-50%)",
                 display: "flex",
-                gap: "18px",
-                alignItems: "center",
+                gap: "12px",
+                zIndex: 1,
               }}
             >
               {navItems.map((item) => {
@@ -93,36 +93,23 @@ function App() {
                 return (
                   <button
                     key={item}
-                    type="button"
                     onClick={() => setActiveNav(item)}
                     style={{
-                      position: "relative",
-                      background: "transparent",
+                      background: isActive
+                        ? "rgba(255,255,255,0.12)"
+                        : "transparent",
+                      color: "inherit",
                       border: "none",
-                      color: isActive ? "#fff" : "rgba(255,255,255,0.78)",
-                      fontSize: isActive ? "16px" : "14px",
+                      borderRadius: "999px",
+                      padding: "8px 12px",
+                      fontSize: "14px",
                       fontWeight: isActive ? 700 : 500,
                       cursor: "pointer",
-                      padding: "6px 0",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "6px",
-                      transition: "color 0.2s ease",
+                      transition: "transform 0.2s ease, background 0.2s ease",
+                      transform: isActive ? "scale(1.05)" : "scale(1)",
                     }}
                   >
-                    <span>{item}</span>
-                    {isActive && (
-                      <span
-                        style={{
-                          width: "4px",
-                          height: "4px",
-                          borderRadius: "50%",
-                          backgroundColor: "#fff",
-                          display: "block",
-                        }}
-                      />
-                    )}
+                    {item}
                   </button>
                 );
               })}
