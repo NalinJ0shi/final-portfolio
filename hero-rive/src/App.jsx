@@ -55,6 +55,8 @@ function App() {
             margin: "0 auto",
             overflow: "hidden",
             position: "relative",
+            display: "flex",
+            flexDirection: "column",
             background:
               "linear-gradient(90deg, #2a100f 0%, #4b1d1b 50%, #924d2b 100%)",
             backgroundColor: "#2a100f",
@@ -68,16 +70,14 @@ function App() {
               margin: "0 auto",
               padding: "16px 24px",
               display: "flex",
-              justifyContent: "space-between",
               alignItems: "center",
               boxSizing: "border-box",
               position: "relative",
               zIndex: 1,
+              flexShrink: 0,
             }}
           >
-            <div style={{ fontWeight: 700, fontSize: "18px", zIndex: 2 }}>
-              Nalin
-            </div>
+            <div style={{ fontWeight: 700, fontSize: "18px" }}>Nalin</div>
             <div
               style={{
                 position: "absolute",
@@ -85,7 +85,6 @@ function App() {
                 transform: "translateX(-50%)",
                 display: "flex",
                 gap: "12px",
-                zIndex: 1,
               }}
             >
               {navItems.map((item) => {
@@ -119,12 +118,12 @@ function App() {
             style={{
               width: "100%",
               maxWidth: "100%",
-              height: "calc(100vh - 64px)",
+              flex: 1,
+              minHeight: 0,
               margin: "0 auto",
               position: "relative",
               overflow: "hidden",
               isolation: "isolate",
-              bottom: 0,
             }}
             onMouseMove={(e) => {
               if (!rive) return;
