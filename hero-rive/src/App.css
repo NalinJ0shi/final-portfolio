@@ -15,15 +15,15 @@ body {
 
 .hero-text {
   margin: 0;
-  color: #ece2e2;
-  font-size: clamp(3rem, 6vw, 5rem);
+  color: #f7f5f5;
+  font-size: clamp(4rem, 7.2vw, 6rem);
   font-weight: 800;
   /* Change this to control the base spacing between letters */
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.18);
-  opacity: 0.75;
-  /* Change 2.4s to adjust animation speed/duration */
+  opacity: 0.78;
+  /* Change 2.8s to adjust animation speed/duration */
   animation: letterSpacingLoop 2.8s ease-out 1 forwards;
 }
 
